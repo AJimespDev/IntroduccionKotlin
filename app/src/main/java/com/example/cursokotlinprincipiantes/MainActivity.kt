@@ -3,15 +3,18 @@ package com.example.cursokotlinprincipiantes
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
     var TAG = ":::TAG"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        variablesYConstantes()
-        tiposDeDatos()
-        operadores()
+        //variablesYConstantes()
+        //tiposDeDatos()
+        //operadores()
+        //nullSafety()
+        funciones()
     }
     // Aqui vamos a ver variables y constantes
     private fun variablesYConstantes(){
@@ -81,5 +84,28 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG,nullString)
 
         nullString?.let {  Log.d(TAG,nullString) }?: run { Log.d(TAG,nullString!!) }
+    }
+
+    private fun funciones(){
+        funcionSimple()
+        funcionParametros("Antonio",20)
+
+        val calculaEdad:Int = funcionRetorno(2003)
+        Log.d(TAG,"My age is $calculaEdad")
+    }
+
+    private fun funcionSimple(){
+        Log.d(TAG,"Antonio")
+        Log.d(TAG,20.toString())
+    }
+
+    private fun funcionParametros(name:String,age:Int){
+        Log.d(TAG,"My name is $name")
+        Log.d(TAG,"My age is $age")
+    }
+
+    private fun funcionRetorno(birthYear: Int): Int {
+        return Calendar.getInstance().get(Calendar.YEAR) - birthYear
+
     }
 }
