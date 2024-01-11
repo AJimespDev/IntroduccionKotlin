@@ -1,6 +1,6 @@
-# [Curso de Kotlin](https://openwebinars.net/academia/aprende/kotlin-para-android/)
+# Introducción Kotlin
 
-##### Proyecto en Android Studio con los siguiente campos aprendidos:
+##### Proyecto en Android Studio del curso de Kotlin en la Academia [OpenWebinars](https://openwebinars.net/academia/aprende/kotlin-para-android/) en los cual he aprendido los siguiente campos:
 - Fundamentos de Kotlin
 - Desarrollo de Aplicaciones Android
 - Manejo de Datos en Kotlin
