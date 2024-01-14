@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import java.util.Calendar
 
+var TAG = ":::TAG"
 class MainActivity : AppCompatActivity() {
-    var TAG = ":::TAG"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -14,7 +15,8 @@ class MainActivity : AppCompatActivity() {
         //tiposDeDatos()
         //operadores()
         //nullSafety()
-        funciones()
+        //funciones()
+        clases()
     }
     // Aqui vamos a ver variables y constantes
     private fun variablesYConstantes(){
@@ -108,4 +110,24 @@ class MainActivity : AppCompatActivity() {
         return Calendar.getInstance().get(Calendar.YEAR) - birthYear
 
     }
+
+    private fun clases(){
+        val antonioData = PersonData("Antonio",20)
+        val antonio = Persona(antonioData)
+        val rodrigoData = PersonData("Rodrigo",26)
+        val rodrigo = Persona(rodrigoData)
+        antonio.presentacion()
+        rodrigo.presentacion()
+    }
+
+    class Persona(private val data:PersonData){
+        fun presentacion(){
+            Log.d(TAG,"My name is ${data.name} and my age is ${data.age}")
+        }
+    }
+
+    data class PersonData(
+        val name:String?,
+        val age:Int
+    )
 }
