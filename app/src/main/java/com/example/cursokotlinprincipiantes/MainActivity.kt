@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
         //operadores()
         //nullSafety()
         //funciones()
-        clases()
+        //clases()
+        interfaces()
     }
     // Aqui vamos a ver variables y constantes
     private fun variablesYConstantes(){
@@ -130,4 +131,37 @@ class MainActivity : AppCompatActivity() {
         val name:String?,
         val age:Int
     )
+
+    private fun interfaces(){
+        val antonioData = PersonData("Antonio",20)
+        val antonio = SegundaPersona(antonioData)
+        val edad = antonio.returnAge(2003)
+        Log.d(TAG,"My age is $edad")
+    }
+    class SegundaPersona(private val data:PersonData):PersonInterface{
+        fun presentacion(){
+            Log.d(TAG,"My name is ${data.name} and my age is ${data.age}")
+        }
+
+        override fun returnAge(birthYear: Int): Int = 2024 - data.age
+    }
+
+    interface PersonInterface{
+        fun returnAge(birthYear: Int): Int
+    }
+
+    /**
+     * 1.- Crear una clase Programador
+     * 2.- Crear una interfaz llamada ProgramadorInterface
+     * 3.- Crear una clase de datos llamada ProgrammerData
+     *
+     * REGLAS:
+     * 1.- La clase de datos debe incluir tres constantes llamadas name, age y language
+     * 2.- La clase interfaz debe tener un método llamado getProgrammerData(), que devolverá un objeto de tipo ProgrammerData
+     * 3.- La clase Programador debe implementar la interfaz y se debe:
+     *      - Crear tres funciones privadas que se encarguen de devolver un nombre, edad y lenguaje de programación respectivamente a vuestra elección
+     *      - La función getProgrammerData debe devolver un objeto de tipo ProgrammerData con los datos de las tres funciones privadas creadas anteriormente
+     * 4- Si cunado llamemos a la clase, solo podemos acceder al método getProgrammerData, es que lo hemos hecho bien
+     */
+
 }
