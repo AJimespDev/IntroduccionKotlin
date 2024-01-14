@@ -11,14 +11,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // =========================================================
         //variablesYConstantes()
         //tiposDeDatos()
         //operadores()
         //nullSafety()
         //funciones()
         //clases()
-        interfaces()
+        //interfaces()
+        // =========================================================
+        //condicionalesIf()
+        //condicionalesWhen()
+        //listados()
+        //bucleFor()
+        //bucleWhile()
+        //bucleDoWhile()
+        //controlDeErrores()
+
     }
+    //region EmpezandoAProgramar
     // Aqui vamos a ver variables y constantes
     private fun variablesYConstantes(){
         /*
@@ -149,19 +160,137 @@ class MainActivity : AppCompatActivity() {
     interface PersonInterface{
         fun returnAge(birthYear: Int): Int
     }
+    //endregion
 
-    /**
-     * 1.- Crear una clase Programador
-     * 2.- Crear una interfaz llamada ProgramadorInterface
-     * 3.- Crear una clase de datos llamada ProgrammerData
-     *
-     * REGLAS:
-     * 1.- La clase de datos debe incluir tres constantes llamadas name, age y language
-     * 2.- La clase interfaz debe tener un método llamado getProgrammerData(), que devolverá un objeto de tipo ProgrammerData
-     * 3.- La clase Programador debe implementar la interfaz y se debe:
-     *      - Crear tres funciones privadas que se encarguen de devolver un nombre, edad y lenguaje de programación respectivamente a vuestra elección
-     *      - La función getProgrammerData debe devolver un objeto de tipo ProgrammerData con los datos de las tres funciones privadas creadas anteriormente
-     * 4- Si cunado llamemos a la clase, solo podemos acceder al método getProgrammerData, es que lo hemos hecho bien
-     */
+    //region EstructurasDeControl
+    private fun condicionalesIf() {
+        val firstNumber = 10
+        val secondNumber = 5
+        val booleanValue = false
+
+        if (firstNumber < secondNumber) {
+            Log.d(TAG, "Primera opcion")
+
+            if (secondNumber == 4) {
+            } else {
+            }
+        } else if (booleanValue) {
+            Log.d(TAG, "Segunda opcion")
+        } else if (booleanValue) {
+            Log.d(TAG, "Segunda opcion")
+        } else if (booleanValue) {
+            Log.d(TAG, "Segunda opcion")
+        } else {
+            Log.d(TAG, "Tercera opcion")
+        }
+
+        val edad: Int = if (!booleanValue) {
+            17
+        } else {
+            26
+        }
+
+        Log.d(TAG, edad.toString())
+    }
+
+    private fun condicionalesWhen() {
+//        val language = "Scala"
+//
+//        when (language) {
+//            "Kotlin", "Scala" -> {
+//                Log.d(TAG, "Se ha seleccionado Kotlin")
+//            }
+//            "Java" -> Log.d(TAG, "Se ha seleccionado Java")
+//            "Python" -> Log.d(TAG, "Se ha seleccionado Python")
+//            "Ruby" -> Log.d(TAG, "Se ha seleccionado Ruby")
+//            else -> Log.d(TAG, "Se ha seleccionado otro lenguaje")
+//        }
+
+        val myNumber = 94
+        when (myNumber) {
+            in 0..10 -> {
+                Log.d(TAG, "Se ha seleccionado Kotlin")
+            }
+            40 -> {
+                Log.d(TAG, "Se ha seleccionado Java")
+            }
+            in 80..119 -> {
+                Log.d(TAG, "Se ha seleccionado Python")
+            }
+            120 -> {
+                Log.d(TAG, "Se ha seleccionado Ruby")
+            }
+            else -> Log.d(TAG, "Se ha seleccionado otro lenguaje")
+        }
+    }
+
+    private fun listados() {
+        val myList = listOf("Rodrigo", "Raquel", "David", "Lorena", "Allison")
+        val myArrayList = arrayListOf("Rodrigo", "Raquel", "David", "Lorena", "Allison")
+
+        val listItem = myList[2]
+
+        myArrayList[2] = "Sandra"
+        val arrayListItem = myArrayList[2]
+
+        myArrayList.removeAt(3)
+
+        Log.d(TAG, myArrayList.toString())
+    }
+
+    private fun bucleFor() {
+        val myArrayList = arrayListOf("Rodrigo", "Raquel", "David", "Lorena", "Allison")
+
+//        for (persona in myArrayList) {
+//            Log.d(TAG, persona)
+//        }
+
+//        for (position in 0 until 5) {
+//            Log.d(TAG, position.toString())
+//        }
+
+//        for (position in 0..10 step 3) {
+//            Log.d(TAG, position.toString())
+//        }
+
+        for (position in 10 downTo 3 step 2) {
+            Log.d(TAG, position.toString())
+        }
+    }
+
+    private fun bucleWhile() {
+        var myNumber = 0
+
+        while (myNumber <= 10) {
+            Log.d(TAG, myNumber.toString())
+            myNumber += 3
+        }
+    }
+
+    private fun bucleDoWhile() {
+        var myNumber = 1
+
+        do {
+            Log.d(TAG, myNumber.toString())
+            myNumber++
+        } while (myNumber <= 10)
+    }
+
+    private fun controlDeErrores() {
+        val myArrayList = arrayListOf(1, 2, 3, 4, 5)
+        val myString: String = "Hola"
+
+        try {
+            for (position in 0..myArrayList.size) {
+                Log.d(TAG, myString)
+            }
+        } catch (exception: Exception) {
+            exception.printStackTrace()
+            Log.d(TAG, "Catch")
+        } finally {
+            Log.d(TAG, "Finally")
+        }
+    }
+    //endregion
 
 }
